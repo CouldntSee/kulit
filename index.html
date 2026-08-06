@@ -3,15 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Monthsary | Kakulitan 💕</title>
+    <title>For My Kakulitan 💚</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Happy Monthsary, Kakulitan!</h1>
-        <p id="countdown"></p>
-        <!-- Add your message, photos, timeline here -->
+
+    <!-- 🔒 PASSWORD DIAL PAD -->
+    <div id="password-overlay">
+        <div class="password-box">
+            <h2>🔐 Secret Garden</h2>
+            <p>Enter the code to unlock our world...</p>
+            
+            <!-- Display Screen -->
+            <div class="dial-screen">
+                <span id="dial-dots">○ ○ ○ ○</span>
+            </div>
+            
+            <!-- Numeric Dial Pad -->
+            <div class="dial-pad">
+                <button class="dial-btn" onclick="dialPress('1')">1</button>
+                <button class="dial-btn" onclick="dialPress('2')">2</button>
+                <button class="dial-btn" onclick="dialPress('3')">3</button>
+                <button class="dial-btn" onclick="dialPress('4')">4</button>
+                <button class="dial-btn" onclick="dialPress('5')">5</button>
+                <button class="dial-btn" onclick="dialPress('6')">6</button>
+                <button class="dial-btn" onclick="dialPress('7')">7</button>
+                <button class="dial-btn" onclick="dialPress('8')">8</button>
+                <button class="dial-btn" onclick="dialPress('9')">9</button>
+                <button class="dial-btn dial-clear" onclick="dialClear()">⌫</button>
+                <button class="dial-btn" onclick="dialPress('0')">0</button>
+                <button class="dial-btn dial-enter" onclick="dialSubmit()">✓</button>
+            </div>
+            
+            <p id="password-error">Hmm, that's not it love...</p>
+            
+            <div class="dial-hint">💡 Hint: Our special month & day</div>
+        </div>
     </div>
+
+    <!-- 🎵 MUSIC PLAYER -->
+    <div id="music-player">
+        <button id="music-toggle" onclick="toggleMusic()">🎵 Play Our Song</button>
+        <input type="range" id="volume" min="0" max="1" step="0.1" value="0.5" onchange="setVolume(this.value)">
+    </div>
+    <audio id="bg-music" loop>
+        <source src="music/your-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- 🌷 FLOATING TULIPS -->
+    <div class="tulip-container" id="tulip-container"></div>
+
+    <!-- 💚 MAIN CONTENT -->
+    <div class="container" id="main-content">
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1 class="fade-in">Happy Monthsary, Kakulitan!</h1>
+            <p class="subtitle fade-in">My favorite person in my favorite color 💚</p>
+            <div id="countdown" class="countdown-box"></div>
+        </section>
+
+        <!-- Love Letter -->
+        <section class="letter-section">
+            <div class="letter-card">
+                <h2>🌷 My Love Letter</h2>
+                <p>
+                    Hey my Kakulitan,<br><br>
+                    Every month with you feels like a garden in full bloom. 
+                    Just like tulips that stand tall and beautiful, you make my world brighter 
+                    with your smile, your laugh, and your beautiful soul.<br><br>
+                    I love you more than all the green in this world.<br><br>
+                    Forever yours,<br>
+                    <em>— Your Love</em>
+                </p>
+            </div>
+        </section>
+
+        <!-- 🎨 DRAWING CANVAS -->
+        <section class="canvas-section">
+            <h2>🎨 Draw Something For Me!</h2>
+            <p>Express your creativity, Kakulitan. Draw anything you want! 💚</p>
+            
+            <div class="canvas-tools">
+                <label>Brush Color:
+                    <input type="color" id="brush-color" value="#2d5016">
+                </label>
+                <label>Size:
+                    <input type="range" id="brush-size" min="1" max="20" value="5">
+                </label>
+                <button onclick="clearCanvas()">🗑️ Clear</button>
+                <button onclick="saveDrawing()">📸 Screenshot</button>
+            </div>
+            
+            <canvas id="drawing-canvas" width="800" height="500"></canvas>
+            
+            <div class="canvas-hint">
+                <p>💡 <strong>Tip:</strong> Use your mouse or finger (on phone) to draw! Click "Screenshot" to save your masterpiece.</p>
+            </div>
+        </section>
+
+        <!-- Photo Gallery -->
+        <section class="gallery-section">
+            <h2>📸 Our Memories</h2>
+            <div class="photo-grid">
+                <div class="photo-card"><img src="images/photo1.jpg" alt="Us"></div>
+                <div class="photo-card"><img src="images/photo2.jpg" alt="Us"></div>
+                <div class="photo-card"><img src="images/photo3.jpg" alt="Us"></div>
+                <div class="photo-card"><img src="images/photo4.jpg" alt="Us"></div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <p>Made with 💚 for Kakulitan | <span id="months-count"></span></p>
+        </footer>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
