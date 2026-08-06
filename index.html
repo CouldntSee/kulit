@@ -621,10 +621,15 @@ function continueFromNotes() {
 
 // ==================== SCROLL FADE IN ====================
 function initScrollObserver() {
+  const els = document.querySelectorAll('.scroll-fade');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(el => el.classList.add('visible'));
+    return;
+  }
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.scroll-fade').forEach(el => { observer.observe(el); });
+  }, { threshold: 0.01 });
+  els.forEach(el => observer.observe(el));
 }
 
 // ==================== MINI GAME (FLOWER MATCH) ====================
